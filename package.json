@@ -1,0 +1,34 @@
+{
+  "name": "react_course_js_ru_08_06_17",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot --inline",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romabelka/js_ru_08_06_17"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romabelka/js_ru_08_06_17"
+  },
+  "homepage": "https://github.com/romabelka/js_ru_08_06_17",
+  "devDependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-react-hmre": "^1.1.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "webpack": "^2.0.0",
+    "webpack-dev-server": "^2.0.0"
+  },
+  "dependencies": {
+    "react": "^15.5.0",
+    "react-dom": "^15.5.0"
+  }
+}
