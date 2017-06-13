@@ -5,7 +5,10 @@ export default class Article extends Component {
         super(props)
 
         this.state = {
-            isOpen: true
+            isOpen: {
+                article: true,
+                comments: true
+            }
         }
     }
 
@@ -14,26 +17,66 @@ export default class Article extends Component {
         const {isOpen} = this.state
         return (
             <div>
-                <h3>{article.title}</h3>
-                <button onClick = {this.toggleOpen}>
-                    {isOpen ? 'close' : 'open'}
+                <h2>{article.title}</h2>
+                <button onClick = {this.toggleOpen('article')}>
+                    {isOpen.article ? 'close article' : 'open article'}
                 </button>
                 {this.getBody()}
             </div>
         )
     }
 
-    getBody() {
-        if (!this.state.isOpen) return null
+    getBody = () => {
+        if (!this.state.isOpen.article) return null
         const {article} = this.props
-        return <section>{article.text}</section>
+        const {isOpen} = this.state
+        return (
+            <div>
+                <section>{article.text}</section>
+                {
+                    article.comments &&
+                    <div>
+                        <button onClick = {this.toggleOpen('comments')}>
+                            {isOpen.comments ? 'close comments' : 'open comments'}
+                        </button>
+                        {this.getComments()}
+                    </div>
+                }
+            </div>
+        )
     }
 
-    toggleOpen = (ev) => {
+    getComments = () => {
+        if (!this.state.isOpen.comments) return null
+        const
+        {    
+            article: {
+                comments
+            }
+        } = this.props,
+        
+        commentElements = comments.map(comment =>
+            <li key={comment.id}>
+                <h4>{comment.user}</h4>
+                <section>{comment.text}</section>
+            </li>
+        )
+        
+        return (
+            <ul>
+                {commentElements}
+            </ul>
+        )
+    }
+
+    toggleOpen = target => ev => {
         ev.preventDefault()
         console.log('---', ev.nativeEvent)
         this.setState({
-            isOpen: !this.state.isOpen
+            isOpen: {
+                ...this.state.isOpen,
+                [target]: !this.state.isOpen[target]
+            }
         })
     }
 }
