@@ -55,12 +55,16 @@ export default class Article extends Component {
   }
 
   getCommentButton() {
+    const {isArticleOpen} = this.state
     const {isCommentListOpen} = this.state
-    return(
-      <button onClick = {this.toggleCommentList}>
-        {isCommentListOpen ? 'Close comments' : 'Open comments'}
-      </button>
-    )
+
+    if (isArticleOpen) {
+      return(
+        <button onClick = {this.toggleCommentList}>
+          {isCommentListOpen ? 'Close comments' : 'Open comments'}
+        </button>
+      )
+    }
   }
 
   toggleCommentList = () => {
