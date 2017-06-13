@@ -1,11 +1,13 @@
 import React, {Component} from 'react'
+import CommentList from './CommentList'
 
 export default class Article extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            isOpen: true
+            isOpen: true,
+            hideComments: true
         }
     }
 
@@ -26,7 +28,39 @@ export default class Article extends Component {
     getBody() {
         if (!this.state.isOpen) return null
         const {article} = this.props
-        return <section>{article.text}</section>
+        return (
+            <div>
+                <section>{article.text}</section>
+                {this.getCommentsBlock()}
+            </div>
+        )
+    }
+
+    getCommentsBlock() {
+        if (!this.props.article.comments) return null
+
+        const {hideComments} = this.state
+        return (
+            <div>
+                <button onClick = {this.toggleCommentsView}>
+                    {hideComments ? 'show comments' : 'hide comments'}
+                </button>
+                {this.getCommentsList()}
+            </div>
+        )
+    }
+
+    getCommentsList() {
+        if (this.state.hideComments) return null
+        const {article} = this.props
+
+        return <CommentList comments = {article.comments} />
+    }
+
+    toggleCommentsView = () => {
+        this.setState({
+            hideComments: !this.state.hideComments
+        })
     }
 
     toggleOpen = (ev) => {
