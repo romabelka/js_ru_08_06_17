@@ -1,24 +1,20 @@
 import React, { Component } from 'react'
 import Comment from './Comment'
 
-export default class Comments extends Component{
-	render(
-		const {comments} = this.props
-		const commentElements = comments.map(comment => <li key = {comment.id}><Comment comment={comment}/></li>)
-	    return (
+export default function Comments({ data }) {
+	const commentElements = data && data.map(comment => 
+    	<li key = {comment.id}>
+    		<Comment comment={comment}/>
+    	</li>
+    )
+    const isComments = data && data.length;
+    //const commentsCount = {data.length}
+    return (
+    	<section>
 	        <ul>
-	            {commentElements}
+	        	{ isComments ? commentElements : 'no comments' }
+	            
 	        </ul>
-	    )
-	)
+    	</section>
+    )
 }
-
-// export default function Comments({ data }) {
-// 	//console.log(data);
-//     const commentElements = data.map(comment => <li key = {comment.id}><Comment comment={comment}/></li>)
-//     return (
-//         <ul>
-//             {commentElements}
-//         </ul>
-//     )
-// }
