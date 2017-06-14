@@ -28,9 +28,14 @@ export default class CommentList extends Component{
     }
 
      showComments(commentElements){
+
         return(
             <div>
-                <button onClick = {this.toggleOpen}>{this.state.isOpen ? 'show comments' : 'show comments'}</button>
+                {commentElements.length > 0 && 
+                <button onClick = {this.toggleOpen}>
+                    {this.state.isOpen ? 'show comments' : 'hide comments'}
+                </button>
+                }
                 {this.state.isOpen ? commentElements : null}
             </div>
         );
