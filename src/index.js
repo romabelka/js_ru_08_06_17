@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
 import ArticleList from './ArticleList'
-import {articles} from './fixtures'
+import { articlesData } from './fixtures'
 
-render(<ArticleList articles = {articles} />, document.getElementById('container'))
+render(<ArticleList data={ articlesData } />, document.getElementById('container'))

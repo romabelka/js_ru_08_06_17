@@ -1,17 +1,20 @@
 import React, {Component} from 'react'
+import Comments from './Comments'
 
 export default class Article extends Component {
+    
     constructor(props) {
         super(props)
 
         this.state = {
-            isOpen: true
+            isOpen: true,
         }
     }
 
     render() {
         const {article} = this.props
         const {isOpen} = this.state
+        console.log(article.comments);
         return (
             <div>
                 <h3>{article.title}</h3>
@@ -19,6 +22,8 @@ export default class Article extends Component {
                     {isOpen ? 'close' : 'open'}
                 </button>
                 {this.getBody()}
+
+                <Comments data={article.comments}/>
             </div>
         )
     }
@@ -31,9 +36,9 @@ export default class Article extends Component {
 
     toggleOpen = (ev) => {
         ev.preventDefault()
-        console.log('---', ev.nativeEvent)
         this.setState({
             isOpen: !this.state.isOpen
         })
     }
+
 }
