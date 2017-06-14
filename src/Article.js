@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
+import CommentList from './CommentList';
 
 export default class Article extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             isOpen: true
@@ -10,8 +11,8 @@ export default class Article extends Component {
     }
 
     render() {
-        const {article} = this.props
-        const {isOpen} = this.state
+        const {article} = this.props;
+        const {isOpen} = this.state;
         return (
             <div>
                 <h3>{article.title}</h3>
@@ -19,21 +20,28 @@ export default class Article extends Component {
                     {isOpen ? 'close' : 'open'}
                 </button>
                 {this.getBody()}
+                {this.showComments()}
             </div>
         )
     }
 
     getBody() {
-        if (!this.state.isOpen) return null
-        const {article} = this.props
+        if (!this.state.isOpen) return null;
+        const {article} = this.props;
         return <section>{article.text}</section>
     }
 
+    showComments(){
+        if(!this.state.isOpen) return null;
+        const {article} = this.props;
+        return <CommentList comments = {article.comments} />
+    }
+
     toggleOpen = (ev) => {
-        ev.preventDefault()
-        console.log('---', ev.nativeEvent)
+        ev.preventDefault();
+        console.log('---', ev.nativeEvent);
         this.setState({
             isOpen: !this.state.isOpen
-        })
+        });
     }
 }
