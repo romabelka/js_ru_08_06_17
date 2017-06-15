@@ -7,6 +7,7 @@ export default class Article extends Component {
 
         this.state = {
             isOpen: true,
+            //лучше внести этот стейт в CommentList, иначе компонент выходит очень прегруженным
             hideComments: true
         }
     }
@@ -37,6 +38,7 @@ export default class Article extends Component {
     }
 
     getCommentsBlock() {
+        //Я б эту проверку спрятал в CommentList
         if (!this.props.article.comments) return null
 
         const {hideComments} = this.state
