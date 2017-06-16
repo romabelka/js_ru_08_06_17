@@ -1,4 +1,4 @@
-export const articlesData = [
+export const articles = [
     {
         "id": "56c782f18990ecf954f6e027",
         "date": "2016-06-09T15:03:23.000Z",
