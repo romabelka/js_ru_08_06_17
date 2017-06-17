@@ -4,8 +4,9 @@ import ArticleList from './ArticleList'
 import ArticlesChart from './ArticlesChart'
 
 class App extends Component {
-    static propTypes = {
 
+    static propTypes = {
+      articles: PropTypes.array.isRequired
     };
 
     render() {

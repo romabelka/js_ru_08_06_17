@@ -1,7 +1,17 @@
 import React, {Component} from 'react'
 import Article from './Article'
+import PropTypes from "prop-types"
 
 export default class ArticleList extends Component {
+
+    static propTypes = {
+      articles: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired
+        })
+      ).isRequired
+    };
+
     state = {
         openArticleId: null
     }
