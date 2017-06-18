@@ -5,11 +5,12 @@ import ArticlesChart from './ArticlesChart'
 
 class App extends Component {
     static propTypes = {
-
-    };
+        articles: PropTypes.array.isRequired
+    }
 
     render() {
         return (
+
             <div>
                 <ArticleList articles = {this.props.articles} />
                 <ArticlesChart articles = {this.props.articles} />

@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class ArticlesChart extends Component {
-    static propTypes = {
-
-    };
 
     componentDidMount() {
         //d3 works with this.refs.chart
