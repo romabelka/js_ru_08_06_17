@@ -24,7 +24,7 @@ class Article extends Component {
         const {article, isOpen, toggleOpen} = this.props
         return (
             <div ref = {this.setContainerRef}>
-                <h3>{article.title}!!!!!</h3>
+                <h3>{article.title}!</h3>
                 <button onClick = {toggleOpen}>
                     {isOpen ? 'close' : 'open'}
                 </button>
@@ -35,11 +35,11 @@ class Article extends Component {
 
     setContainerRef = ref => {
         this.container = ref
-        console.log('---', ref)
+        //console.log('---', ref)
     }
 
     componentDidMount() {
-        console.log('---', 'mounted')
+        //console.log('---', 'mounted')
     }
 
     getBody() {

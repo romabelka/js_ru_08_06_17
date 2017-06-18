@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class ArticlesChart extends Component {
     static propTypes = {
-
+        articles: PropTypes.arrayOf(PropTypes.shape({})).isRequired
     };
 
     componentDidMount() {
