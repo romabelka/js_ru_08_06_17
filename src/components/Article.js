@@ -13,11 +13,11 @@ class Article extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('---', 'updating', this.props.isOpen, nextProps.isOpen)
+        // console.log('---', 'updating', this.props.isOpen, nextProps.isOpen)
     }
 
     componentWillMount() {
-        console.log('---', 'mounting')
+        // console.log('---', 'mounting')
     }
 
     render() {
@@ -35,17 +35,18 @@ class Article extends Component {
 
     setContainerRef = ref => {
         this.container = ref
-        console.log('---', ref)
+        // console.log('---', ref)
     }
 
     componentDidMount() {
-        console.log('---', 'mounted')
+        // console.log('---', 'mounted')
     }
 
     getBody() {
         const {article, isOpen} = this.props
-        if (!isOpen) return null
-        return (
+
+      if (!isOpen) return null
+       return (
             <section>
                {article.text}
                <CommentList comments = {article.comments} ref = {this.setCommentsRef}/>
@@ -54,7 +55,7 @@ class Article extends Component {
     }
 
     setCommentsRef = ref => {
-//        console.log('---', findDOMNode(ref))
+       // console.log('---', findDOMNode(ref))
     }
 }
 
