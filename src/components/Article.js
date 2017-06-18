@@ -21,11 +21,11 @@ class Article extends Component {
     }
 
     render() {
-        const {article, isOpen, toggleOpen} = this.props
+        const {article, isOpen, toggleOpenArticle} = this.props
         return (
             <div ref = {this.setContainerRef}>
                 <h3>{article.title}!!!!!</h3>
-                <button onClick = {toggleOpen}>
+                <button onClick = {toggleOpenArticle}>
                     {isOpen ? 'close' : 'open'}
                 </button>
                 {this.getBody()}
