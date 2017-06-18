@@ -5,7 +5,19 @@ import ArticlesChart from './ArticlesChart'
 
 class App extends Component {
     static propTypes = {
-
+        articles: PropTypes.arrayOf(
+            PropTypes.shape({
+                id: PropTypes.number.isRequired,
+                date: PropTypes.string,
+                title: PropTypes.string,
+                text: PropTypes.string.isRequired,
+                comments: PropTypes.shape({
+                    id: PropTypes.number.isRequired,
+                    user: PropTypes.string,
+                    text: PropTypes.string.isRequired,
+                })
+            })
+        ).isRequired
     };
 
     render() {
