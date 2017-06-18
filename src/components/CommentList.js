@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
+import PropTypes from 'prop-types'
 
 function CommentList({comments = [], isOpen, toggleOpen}) {
     const text = isOpen ? 'hide comments' : 'show comments'
@@ -10,6 +11,9 @@ function CommentList({comments = [], isOpen, toggleOpen}) {
             {getBody({comments, isOpen})}
         </div>
     )
+}
+CommentList.propTypes = {
+    toggleOpen: PropTypes.func
 }
 
 function getBody({comments, isOpen}) {
