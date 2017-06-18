@@ -11,6 +11,13 @@ export default (NewComponent) => class ToggleFunctionality extends Component {
   }
 
   toggleOpenArticle = openArticleId => ev => {
-    this.setState({ openArticleId })
+    let {openArticleId: previousCurrentId} = this.state
+
+    if (previousCurrentId === openArticleId) {
+      this.setState({openArticleId: null})
+    } else {
+      this.setState({openArticleId})
+    }
   }
+
 }
