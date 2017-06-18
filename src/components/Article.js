@@ -9,8 +9,10 @@ class Article extends Component {
             id: PropTypes.string.isRequired,
             title: PropTypes.string.isRequired,
             text: PropTypes.string
-        }).isRequired
-    }
+        }).isRequired,
+        isOpen: PropTypes.bool.isRequired,
+        toggleOpenArticle: PropTypes.func.isRequired
+    };
 
     componentWillReceiveProps(nextProps) {
         console.log('---', 'updating', this.props.isOpen, nextProps.isOpen)
@@ -21,11 +23,12 @@ class Article extends Component {
     }
 
     render() {
-        const {article, isOpen, toggleOpen} = this.props
+        const {article, isOpen, toggleOpenArticle} = this.props;
+
         return (
             <div ref = {this.setContainerRef}>
-                <h3>{article.title}!!!!!</h3>
-                <button onClick = {toggleOpen}>
+                <h3>{article.title}</h3>
+                <button onClick = {toggleOpenArticle}>
                     {isOpen ? 'close' : 'open'}
                 </button>
                 {this.getBody()}
@@ -34,17 +37,17 @@ class Article extends Component {
     }
 
     setContainerRef = ref => {
-        this.container = ref
+        this.container = ref;
         console.log('---', ref)
-    }
+    };
 
     componentDidMount() {
         console.log('---', 'mounted')
     }
 
     getBody() {
-        const {article, isOpen} = this.props
-        if (!isOpen) return null
+        const {article, isOpen} = this.props;
+        if (!isOpen) return null;
         return (
             <section>
                {article.text}
