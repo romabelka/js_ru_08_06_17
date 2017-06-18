@@ -14,6 +14,6 @@ Comment.propTypes = {
         text: PropTypes.string.isRequired,
         user: PropTypes.string.isRequired
     }).isRequired
-}
+};
 
 export default Comment
