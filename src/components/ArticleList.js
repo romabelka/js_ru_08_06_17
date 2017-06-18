@@ -1,28 +1,30 @@
-import React, {Component} from 'react'
+import React from 'react'
 import Article from './Article'
+import toggleOpenOneAtATime from '../decorators/toggleOpenOneAtATime'
 
-export default class ArticleList extends Component {
-    state = {
-        openArticleId: null
-    }
+function ArticleList(props) {
+    const {currentlyOpenComponentId, toggleOpen} = props
 
-    render() {
-        const articleElements = this.props.articles.map(article => <li key={article.id}>
-            <Article
-                article = {article}
-                isOpen = {article.id === this.state.openArticleId}
-                toggleOpen = {this.toggleOpenArticle(article.id)}
-            />
-        </li>)
-
-        return (
-            <ul>
-                {articleElements}
-            </ul>
-        )
-    }
-
-    toggleOpenArticle = openArticleId => ev => {
-        this.setState({ openArticleId })
-    }
+    const articleElements = props.articles.map(
+        article => {
+            return (
+                <li 
+                    key = {article.id}>
+                    <Article 
+                        article = {article} 
+                        isOpen = {currentlyOpenComponentId === article.id}
+                        toggleOpen = {toggleOpen(article.id)}
+                    />
+                </li>
+            )            
+        }            
+    )
+    
+    return (
+        <ul>
+            {articleElements}
+        </ul>
+    )
 }
+
+export default toggleOpenOneAtATime(ArticleList)
