@@ -2,7 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 function Comment({comment}) {
-    return (
+
+   return (
         <div>
             <p>{comment.text} <b>by {comment.user}</b></p>
         </div>
