@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Article from './Article'
 import toggleOpenArticle from '../decorators/toggleOpenArticle'
 
+//еще propTypes нужны были
 class ArticleList extends Component {
     render() {
         const articleElements = this.props.articles.map(article => <li key={article.id}>
