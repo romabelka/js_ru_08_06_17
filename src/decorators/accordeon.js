@@ -2,21 +2,22 @@ import React, {Component as ReactComponent} from 'react'
 
 export default (AccordionComponent) => class ReadyAccComponent extends ReactComponent {
     state = {
-        openArticleId: null
+        openItemId: null
     }
 
     render() {
-        return 
+        return (
             <AccordionComponent 
                 {...this.props} 
                 {...this.state} 
                 toggleOpenArticle = {this.toggleOpenArticle} 
             />
+        )
     }
 
-    toggleOpenArticle = openArticleId => ev => {
+    toggleOpenArticle = openItemId => ev => {
         this.setState({ 
-            openArticleId: (openArticleId !== this.state.openArticleId ? openArticleId : false) 
+            openItemId: (openItemId !== this.state.openItemId ? openItemId : null) 
         })
     }
 }

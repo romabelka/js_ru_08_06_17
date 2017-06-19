@@ -6,11 +6,11 @@ import Accordeon from '../decorators/accordeon'
 class ArticleList extends Component {
 
     render() {
-        const {openArticleId, toggleOpenArticle, articles} = this.props
+        const {openItemId, toggleOpenArticle, articles} = this.props
         const articleElements = this.props.articles.map(article => <li key={article.id}>
             <Article
                 article = {article}
-                isOpen = {article.id === openArticleId}
+                isOpen = {article.id === openItemId}
                 toggleOpen = {toggleOpenArticle(article.id)}
             />
         </li>)
