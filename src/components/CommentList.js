@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import Comment from './Comment'
 import toggleOpen from '../decorators/toggleOpen'
 
@@ -10,6 +11,13 @@ function CommentList({comments = [], isOpen, toggleOpen}) {
             {getBody({comments, isOpen})}
         </div>
     )
+}
+
+CommentList.propTypes = {
+    comments: PropTypes.array,
+    //from toggleOpen decorator
+    isOpen: PropTypes.bool,
+    toggleOpen: PropTypes.func
 }
 
 function getBody({comments, isOpen}) {
