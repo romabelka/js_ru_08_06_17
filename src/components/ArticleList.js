@@ -29,8 +29,4 @@ class ArticleList extends Component {
     }
 }
 
-<<<<<<< HEAD
 export default accordion(ArticleList)
-=======
-export default accordion(ArticleList)
->>>>>>> 2604b107f168326dc9252841a50b1949ac298281
