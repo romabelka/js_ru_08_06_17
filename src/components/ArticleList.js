@@ -5,17 +5,21 @@ import accordion from '../decorators/accordion'
 
 class ArticleList extends Component {
 
+    static propTypes = {
+        articles: PropTypes.array.isRequired,
+        //from accordion
+        openItemId: PropTypes.string,
+        toggleOpenItem: PropTypes.func.isRequired
+    }
     render() {
-        const {openArticleId, toggleOpenArticle} = this.props
-        const articleElements = this.props.articles.map(article =>
-            <li key={article.id}>
-                <Article
-                    article = {article}
-                    isOpen = {article.id === openArticleId}
-                    toggleOpen = {toggleOpenArticle(article.id)}
-                />
-            </li>
-        )
+        const { articles, openItemId, toggleOpenItem } = this.props
+        const articleElements = articles.map(article => <li key={article.id}>
+            <Article
+                article = {article}
+                isOpen = {article.id === openItemId}
+                toggleOpen = {toggleOpenItem(article.id)}
+            />
+        </li>)
 
         return (
             <ul>
@@ -25,4 +29,8 @@ class ArticleList extends Component {
     }
 }
 
+<<<<<<< HEAD
 export default accordion(ArticleList)
+=======
+export default accordion(ArticleList)
+>>>>>>> 2604b107f168326dc9252841a50b1949ac298281

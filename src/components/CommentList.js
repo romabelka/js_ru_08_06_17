@@ -14,9 +14,10 @@ function CommentList({comments = [], isOpen, toggleOpen}) {
 }
 
 CommentList.propTypes = {
-    comments: PropTypes.array.isRequired,
-    isOpen: PropTypes.bool.isRequired,
-    toggleOpen: PropTypes.func.isRequired
+    comments: PropTypes.array,
+    //from toggleOpen decorator
+    isOpen: PropTypes.bool,
+    toggleOpen: PropTypes.func
 }
 
 function getBody({comments, isOpen}) {
