@@ -24,14 +24,18 @@ function getBody({comments, isOpen}) {
     )
 }
 
-CommentList.propTypes = PropTypes.arrayOf(
-    PropTypes.shape({
-        comment: PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            user: PropTypes.string,
-            text: PropTypes.string.isRequired
-        }).isRequired
-    })
-)
+CommentList.propTypes = PropTypes.shape({
+    comments: PropTypes.arrayOf(
+        PropTypes.shape({
+            comment: PropTypes.shape({
+                id: PropTypes.string.isRequired,
+                user: PropTypes.string,
+                text: PropTypes.string.isRequired
+            }).isRequired
+        })
+    ),
+    isOpen: PropTypes.bool.isRequired,
+    toggleOpen: PropTypes.func.isRequired
+})
 
 export default toggleOpen(CommentList)
