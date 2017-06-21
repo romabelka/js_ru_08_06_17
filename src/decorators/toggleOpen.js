@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, {Component as ReactComponent} from 'react'
 
-export default (OriginalComponent) => class WrappedComponent extends Component {
+export default (OriginalComponent) => class WrappedComponent extends ReactComponent {
     state = {
         isOpen: false
     }
@@ -17,6 +17,6 @@ export default (OriginalComponent) => class WrappedComponent extends Component {
     }
 
     getRef = (ref) => {
-        console.log('---', ref)
+        //   console.log('---', ref)
     }
 }
