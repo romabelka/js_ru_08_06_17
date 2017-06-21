@@ -50,7 +50,7 @@ class Article extends PureComponent {
 
     setContainerRef = ref => {
         this.container = ref
-//        console.log('---', ref)
+       console.log('------', ref)
     }
 
     getBody() {
