@@ -32,6 +32,7 @@
   "dependencies": {
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
+    "react-day-picker": "^6.0.2",
     "react-dom": "^15.5.0",
     "react-select": "^1.0.0-rc.5",
     "react-transition-group": "^1.2.0"
