@@ -30,9 +30,12 @@
     "webpack-dev-server": "^2.0.0"
   },
   "dependencies": {
+    "moment": "^2.18.1",
     "prop-types": "^15.5.10",
-    "react": "^15.5.0",
-    "react-dom": "^15.5.0",
+    "react": "^15.6.1",
+    "react-addons-shallow-compare": "^15.6.0",
+    "react-dates": "^12.1.2",
+    "react-dom": "^15.6.1",
     "react-select": "^1.0.0-rc.5",
     "react-transition-group": "^1.2.0"
   }
