@@ -26,10 +26,10 @@ class App extends Component {
         return (
             <div>
                 <UserForm />
-                <Select options = {options} value = {this.state.selection} onChange = {this.changeSelection} multi />
                 <ArticleList articles = {articles} defaultOpenId = {articles[0].id}/>
                 <ArticlesChart articles = {articles} />
                 <SelectDayPicker />
+                <Select options = {options} value = {this.state.selection} onChange = {this.changeSelection} multi />
             </div>
         )
     }
