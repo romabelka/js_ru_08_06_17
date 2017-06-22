@@ -1,9 +1,9 @@
 import React, {Component, PureComponent} from 'react'
 import {findDOMNode} from 'react-dom'
 import PropTypes from 'prop-types'
-import CommentList from './CommentList'
+import CommentList from '../CommentList'
 import { CSSTransitionGroup } from 'react-transition-group'
-import './article.css'
+import './style.css'
 
 class Article extends PureComponent {
     static propTypes = {
