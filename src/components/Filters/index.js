@@ -35,7 +35,7 @@ export default connect(state => ({
         let startRange = curState.filters.dateRange;
 
         // Фильтр нужно сбросить, чтобы была возможность выбрать начальную дату
-        // позднее уже выбранной. Сейчас это не предусмотрено
+        // из диапазона позднее уже выбранной начальной даты
         if (startRange.from && startRange.to) {
             startRange = {
                 from: null,
