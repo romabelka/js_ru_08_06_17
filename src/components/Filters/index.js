@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import DateRange from './DateRange'
 import SelectFilter from './Select'
 import {connect} from 'react-redux'
-import {filterSelectChange, filterDateChange, dateFromChange, dateToChange} from '../../AC/filters'
+import {filterSelectChange, filterDateChange} from '../../AC/filters'
 import { DateUtils } from 'react-day-picker'
 
 class Filters extends Component {
