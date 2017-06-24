@@ -21,7 +21,6 @@ class DateRange extends Component {
             </div>
         );
     }
-
 }
 
 export default DateRange
