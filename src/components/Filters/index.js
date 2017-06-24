@@ -32,7 +32,17 @@ export default connect(state => ({
     },
     handleDayClick: (day) => {
         const curState = window.store.getState('filters');
+        let startRange = curState.filters.dateRange;
 
-        dispatch(filterDateChange(DateUtils.addDayToRange(day, curState.filters.dateRange)))
+        // Фильтр нужно сбросить, чтобы была возможность выбрать начальную дату
+        // позднее уже выбранной. Сейчас это не предусмотрено
+        if (startRange.from && startRange.to) {
+            startRange = {
+                from: null,
+                to: null
+            }
+        }
+
+        dispatch(filterDateChange(DateUtils.addDayToRange(day, startRange)))
     }
 }))(Filters)
