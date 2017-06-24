@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import "./inputStyle.css"
 
 class UserForm extends Component {
 
@@ -11,34 +12,47 @@ class UserForm extends Component {
   };
 
   render() {
-    const errorStyle = this.state.isError ? {background: 'red'} : {background: 'none'};
 
     return (
       <form>
         <label>Your comment</label><br/><br/>
-        Name: <input name="userName" type='text' value={this.state.userName}
-                     onChange={this.handleInputChange(5, 15)}/><br/><br/>
-        Comment: <textarea name="comment" type='text' value={this.state.comment}
-                           onChange={this.handleInputChange(20, 50)}/><br/><br/>
+        Name: <input className={this.changeClassError('userName')} name="userName" type='text' value={this.state.userName}
+                     onChange={this.handleInputChange}/><br/><br/>
+        Comment: <textarea className={this.changeClassError('comment')} name="comment" type='text' value={this.state.comment}
+                           onChange={this.handleInputChange}/><br/><br/>
         <input name="submitButton" type="button" value="Add comment"/>
       </form>
     )
   }
 
-  handleInputChange = (minlength, maxlength) => (ev) => {
-    let symbolLength = ev.target.value.length;
-    const inputName = ev.target.name;
-    const currentInput = ev.target;
 
-    if (symbolLength < minlength || symbolLength > maxlength) {
-      currentInput.style.background = "red";
-    } else {
-      currentInput.style.background = "none";
-    }
+  handleInputChange = (ev) => {
+    const inputName = ev.target.name;
 
     this.setState({
       [inputName]: ev.target.value,
     });
+  }
+
+  changeClassError = (name) => {
+    const inputLength = this.state[name].length;
+
+    if (name === "userName") {
+      return inputLength < varifNumbers[name].min || inputLength > varifNumbers[name].max ? "form-input__error" : "form-input_success"
+    } else {
+      return inputLength < varifNumbers[name].min || inputLength > varifNumbers[name].max ? "form-input__error" : "form-input_success"
+    }
+  }
+}
+
+const varifNumbers = {
+  userName: {
+    min: 5,
+    max: 12,
+  },
+  comment: {
+    min: 20,
+    max: 50,
   }
 }
 
