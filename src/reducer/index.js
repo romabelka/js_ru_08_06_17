@@ -7,6 +7,6 @@ import dateRangeReducer from './dateRange'
 export default combineReducers({
     count: counterReducer,
     articles,
-	select: selectReducer,
+	selected: selectReducer,
 	dateRange: dateRangeReducer
 })

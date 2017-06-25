@@ -18,7 +18,8 @@ class SelectFilter extends Component {
     handleChange = selected => this.props.setSelectArticles(selected)
 
     render() {
-	    const { articles, selected } = this.props
+
+    	const { articles, selected } = this.props
 
         const options = articles.map(article => ({
             label: article.title,
@@ -34,4 +35,4 @@ class SelectFilter extends Component {
     }
 }
 
-export default connect((state) => ({articles: state.articles, selected: state.select}), {setSelectArticles})(SelectFilter)
+export default connect((state) => ({articles: state.articles, selected: state.selected}), {setSelectArticles})(SelectFilter)
