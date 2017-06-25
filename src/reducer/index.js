@@ -4,5 +4,5 @@ import articles from './articles'
 
 export default combineReducers({
     count: counterReducer,
-    articles
+    articlesState: articles
 })
