@@ -11,14 +11,14 @@ class SelectFilter extends Component {
     static propTypes = {
         //from connect
     	articles: PropTypes.array.isRequired,
-	    selected: PropTypes.array.isRequired,
+	    selected: PropTypes.array,
 	    setSelectArticles: PropTypes.func.isRequired
     };
 
-    handleChange = selected => this.props.setSelectArticles({selected})
+    handleChange = selected => this.props.setSelectArticles(selected)
 
     render() {
-        const { articles, selected } = this.props
+	    const { articles, selected } = this.props
 
         const options = articles.map(article => ({
             label: article.title,
@@ -34,4 +34,4 @@ class SelectFilter extends Component {
     }
 }
 
-export default connect((state) => ({articles: state.articles, selected: state.select.selected}), {setSelectArticles})(SelectFilter)
+export default connect((state) => ({articles: state.articles, selected: state.select}), {setSelectArticles})(SelectFilter)
