@@ -1,21 +1,28 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import DateRange from './DateRange'
 import SelectFilter from './Select'
+import {connect} from 'react-redux'
+import {filterSelect, filterDate} from '../../AC'
 
 class Filters extends Component {
-    static propTypes = {
-        articles: PropTypes.array
-    };
-
     render() {
+        let {selected, filterSelect, filterDate, allArticles, dateRange} = this.props;
+        
         return (
             <div>
-                <SelectFilter articles = {this.props.articles} />
-                <DateRange />
+                <SelectFilter {...{selected, filterSelect, allArticles}} />
+                <DateRange {...{dateRange, filterDate}} />
             </div>
         )
     }
 }
 
-export default Filters
+export default connect(state => ({
+    allArticles: state.articlesState.allArticles,
+    selected: state.articlesState.selected,
+    dateRange: state.articlesState.dateRange
+}),
+{
+    filterSelect,
+    filterDate
+})(Filters)
