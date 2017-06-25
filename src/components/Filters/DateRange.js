@@ -1,20 +1,27 @@
 import React, { Component } from 'react'
 import DayPicker, { DateUtils } from 'react-day-picker'
+import {setDate} from '../../AC'
+import {connect} from 'react-redux'
+import PropTypes from 'prop-types'
 
 import 'react-day-picker/lib/style.css';
 
 class DateRange extends Component {
-    state = {
-        from: null,
-        to: null
+    static propTypes = {
+    	date: PropTypes.shape({
+		    from: PropTypes.object,
+		    to: PropTypes.object
+	    }),
+	    setDate: PropTypes.func.isRequired
     }
 
     handleDayClick = (day) => {
-        this.setState(DateUtils.addDayToRange(day, this.state))
+    	const {setDate, date} = this.props
+    	setDate(DateUtils.addDayToRange(day, date))
     }
 
     render() {
-        const { from, to } = this.state;
+        const { from, to } = this.props.date;
         const selectedRange = from && to && `${from.toDateString()} - ${to.toDateString()}`
         return (
             <div className="date-range">
@@ -30,4 +37,4 @@ class DateRange extends Component {
 
 }
 
-export default DateRange
+export default connect(state => ({date: state.dateRange}), {setDate})(DateRange)
