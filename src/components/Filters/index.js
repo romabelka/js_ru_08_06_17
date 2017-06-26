@@ -12,7 +12,7 @@ class Filters extends Component {
     };
 
     render() {
-        const {handleChange, handleDayClick, articles, filters} = {...this.props}
+        const {handleChange, handleDayClick, articles, filters} = ...this.props
 
         return (
             <div>
