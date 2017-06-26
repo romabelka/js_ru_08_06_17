@@ -1,3 +1,5 @@
 export const DELETE_ARTICLE = 'DELETE_ARTICLE'
 
 export const INCREMENT = 'INCREMENT'
+export const COMBOBOX_CHANGE = 'COMBOBOX_CHANGE'
+export const DATE_CHANGE = 'DATE_CHANGE'
