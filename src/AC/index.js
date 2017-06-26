@@ -12,3 +12,11 @@ export function deleteArticle(id) {
         payload: { id }
     }
 }
+
+
+export function selectDateRange(dates) {
+  return {
+    type: 'DATE_RANGE',
+    dates: dates
+  }
+}
