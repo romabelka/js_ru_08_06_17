@@ -5,7 +5,7 @@ import Select from 'react-select'
 import 'react-select/dist/react-select.css'
 import {connect} from 'react-redux'
 import {select} from '../../AC'
-import {articles} from '../../fixtures'
+//import {articles} from '../../fixtures'
 //import selected from '../../reducer'
 class SelectFilter extends Component {
 //    state = {
@@ -36,5 +36,5 @@ class SelectFilter extends Component {
     }
 }
 
-export default connect((state)=>({articles: articles, selected: state.select}),
+export default connect((state)=>({articles: state.articles, selected: state.select}),
 {select})(SelectFilter)
