@@ -37,6 +37,7 @@
     "react-redux": "^5.0.5",
     "react-select": "^1.0.0-rc.5",
     "react-transition-group": "^1.2.0",
-    "redux": "^3.7.0"
+    "redux": "^3.7.0",
+    "reselect": "^3.0.1"
   }
 }

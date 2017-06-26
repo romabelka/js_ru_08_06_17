@@ -64,7 +64,6 @@ class Article extends PureComponent {
 
     getBody() {
         const {article, isOpen} = this.props
-        console.log('---', 'update')
         if (!isOpen) return null
         return (
             <section>
