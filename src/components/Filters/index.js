@@ -17,7 +17,11 @@ class Filters extends Component {
     };
 
     render() {
+<<<<<<< HEAD
         const {handleChange, articles, filters} = this.props;
+=======
+        const {handleChange, handleDayClick, articles, filters} = ...this.props
+>>>>>>> 88253ab8e457e264c857a2704ab94a9877e15767
 
         return (
             <div>
