@@ -54,7 +54,6 @@ class Article extends PureComponent {
     handleDelete = () => {
         const {deleteArticle, article} = this.props
         deleteArticle(article.id)
-        console.log('---', 'deleting article')
     }
 
     setContainerRef = ref => {
@@ -69,7 +68,7 @@ class Article extends PureComponent {
             <section>
                {article.text}
                 <button onClick = {() => this.setState({updateIndex: this.state.updateIndex + 1})}>update</button>
-               <CommentList comments = {article.comments} ref = {this.setCommentsRef} key = {this.state.updateIndex}/>
+               <CommentList comments = {article.comments} articleId={article.id} ref = {this.setCommentsRef} key = {this.state.updateIndex}/>
             </section>
         )
     }

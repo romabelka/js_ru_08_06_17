@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Article from './Article'
 import accordion from '../decorators/accordion'
 import {connect} from 'react-redux'
-import {filtratedArticlesSelector} from '../selectors'
+import {filtratedArticlesSelector} from '../selectors/articles'
 
 class ArticleList extends Component {
     static propTypes = {
@@ -15,8 +15,8 @@ class ArticleList extends Component {
     }
 
     render() {
-        console.log('---', 'update article list')
         const { articles, openItemId, toggleOpenItem } = this.props
+
         const articleElements = articles.map(article => <li key={article.id}>
             <Article
                 article = {article}
