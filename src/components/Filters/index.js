@@ -11,29 +11,32 @@ class Filters extends Component {
         articles: PropTypes.array
     };
 
+    handleDayClick = (day) => {
+        const {handleDayClick, filters} = this.props;
+        return handleDayClick(day, filters);
+    };
+
     render() {
-        const {handleChange, handleDayClick, articles, filters} = {...this.props}
+        const {handleChange, articles, filters} = this.props;
 
         return (
             <div>
                 <SelectFilter selected={filters.selected} handleChange={handleChange} articles={articles} />
-                <DateRange dateRange={filters.dateRange} handleDayClick={handleDayClick} />
+                <DateRange dateRange={filters.dateRange} handleDayClick={this.handleDayClick} />
             </div>
         )
     }
 }
 
-export default connect(state => ({
+export default connect((state) => ({
     articles: state.articles,
     filters: state.filters
 }), dispatch => ({
     handleChange: selected => {
         dispatch(filterSelectChange(selected))
     },
-    handleDayClick: (day) => {
-        const curState = window.store.getState('filters');
-        let startRange = curState.filters.dateRange;
-
+    handleDayClick: (day, filters) => {
+        let startRange = filters.dateRange;
         // Фильтр нужно сбросить, чтобы была возможность выбрать начальную дату
         // из диапазона позднее уже выбранной начальной даты
         if (startRange.from && startRange.to) {
