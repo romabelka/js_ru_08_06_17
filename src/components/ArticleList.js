@@ -8,7 +8,7 @@ import {filtratedArticlesSelector} from '../selectors'
 class ArticleList extends Component {
     static propTypes = {
         //from connect
-        articles: PropTypes.array.isRequired,
+        articles: PropTypes.object.isRequired,
         //from accordion
         openItemId: PropTypes.string,
         toggleOpenItem: PropTypes.func.isRequired
