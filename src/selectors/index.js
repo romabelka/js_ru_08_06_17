@@ -14,12 +14,11 @@ export const filtratedArticlesSelector = createSelector(articlesGetter, filtersG
     Object.keys(articles).forEach((key) => {
         const published = Date.parse(articles[key].date)
 
-        if ((!selected.length || selected.includes(articles[key])) &&
+        if ((!selected.length || selected.includes(key)) &&
         (!from || !to || (published > from && published < to))) {
             filtered[key] = articles[key]
         }
     })
-
     return filtered
 })
 

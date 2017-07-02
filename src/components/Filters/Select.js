@@ -14,13 +14,15 @@ class SelectFilter extends Component {
 
     render() {
         const { articles, selected } = this.props
-        const options = Object.keys(articles).map(key => {
-            return {
+
+        const options = []
+        Object.keys(articles).forEach(key => {
+            options.push({
                 label: articles[key].title,
                 value: key
-            }
+            })
         })
-
+        
         return <Select
             options={options}
             value={selected}
