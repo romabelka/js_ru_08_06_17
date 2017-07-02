@@ -14,10 +14,13 @@ class SelectFilter extends Component {
 
     render() {
         const { articles, selected } = this.props
-        const options = articles.map(article => ({
-            label: article.title,
-            value: article.id
-        }))
+        const options = Object.getOwnPropertyNames(articles).map(articleId => {
+            const article = articles[articleId]
+            return {
+                label: article.title,
+                value: article.id
+            }
+        })
 
         return <Select
             options={options}

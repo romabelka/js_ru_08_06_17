@@ -17,13 +17,18 @@ class ArticleList extends Component {
     render() {
         console.log('---', 'update article list')
         const { articles, openItemId, toggleOpenItem } = this.props
-        const articleElements = articles.map(article => <li key={article.id}>
-            <Article
-                article = {article}
-                isOpen = {article.id === openItemId}
-                toggleOpen = {toggleOpenItem(article.id)}
-            />
-        </li>)
+        const articleElements = Object.getOwnPropertyNames(articles).map(articleId => {
+            const article = articles[articleId]
+            return(
+                <li key={article.id}>
+                    <Article
+                        article = {article}
+                        isOpen = {article.id === openItemId}
+                        toggleOpen = {toggleOpenItem(article.id)}
+                    />
+                </li>
+            )
+        })
 
         return (
             <ul>
