@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "concurrently \"npm run dev\" \"npm run api\"",
+    "api": "node simple_api/server.js",
+    "dev": "webpack-dev-server --hot --inline",
     "build": "webpack"
   },
   "repository": {
@@ -24,6 +26,7 @@
     "babel-preset-react": "^6.11.1",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
+    "concurrently": "^3.5.0",
     "css-loader": "^0.28.4",
     "style-loader": "^0.18.2",
     "webpack": "^2.0.0",
