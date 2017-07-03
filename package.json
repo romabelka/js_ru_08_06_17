@@ -33,6 +33,7 @@
     "webpack-dev-server": "^2.0.0"
   },
   "dependencies": {
+    "md5": "^2.2.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
     "react-day-picker": "^6.0.3",

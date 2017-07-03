@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
-import {commentSelectorFactory} from '../selectors'
+import {commentSelectorFactory} from '../selectors/comments'
 
 function Comment({comment}) {
     return (
