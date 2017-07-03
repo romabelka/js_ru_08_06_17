@@ -6,5 +6,7 @@ import filters from './filters'
 
 export default combineReducers({
     count: counterReducer,
-    articles, comments, filters
+    articles,
+    comments,
+    filters
 })
