@@ -20,14 +20,14 @@ Comment.propTypes = {
     }).isRequired
 }
 
-const mapStateToProps = () => {
-    const commentSelector = commentSelectorFactory()
+// const mapStateToProps = () => {
+//     const commentSelector = commentSelectorFactory()
 
-    return (state, ownProps) => {
-        return {
-            comment: commentSelector(state, ownProps)
-        }
-    }
-}
+//     return (state, ownProps) => {
+//         return {
+//             comment: commentSelector(state, ownProps)
+//         }
+//     }
+// }
 
-export default connect(mapStateToProps)(Comment)
+export default Comment

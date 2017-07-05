@@ -10,6 +10,7 @@ import Loader from './Loader'
 class CommentList extends Component {
     render() {
         let { article, isOpen, toggleOpen, loadAllComments, loaded, loading, comments } = this.props
+        
         const text = isOpen ? 'hide comments' : 'show comments'
         return (
                 <div>
@@ -35,7 +36,7 @@ class Comments extends Component {
     
     render() {
         let {article: {comments = [], id}, loading, commentsState} = this.props
-
+        
         if (loading) return <Loader />
         
         if (!comments.length) return (
@@ -48,7 +49,11 @@ class Comments extends Component {
         return (
             <div>
                 <ul>
-                {comments.map(id => <li key={id}><Comment id = {(commentsState || {})[id]}/></li>)}
+                {comments.map(id =>
+                              <li key={id}>
+                              <Comment comment = {commentsState.get(id)}/>
+                              </li>
+                             )}
                 </ul>
                 <CommentForm articleId = {id} />
             </div>
