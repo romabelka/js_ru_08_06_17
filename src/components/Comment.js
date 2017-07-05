@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {commentSelectorFactory} from '../selectors'
 
-function Comment({comment}) {
+function Comment({comment = {}}) {
     return (
         <div>
             <p>{comment.text} <b>by {comment.user}</b></p>
