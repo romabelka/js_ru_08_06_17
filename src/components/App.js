@@ -41,10 +41,12 @@ class App extends Component {
                         <div><NavLink activeStyle = {{color: 'red'}} to="/counter">Counter</NavLink></div>
                         <div><NavLink activeStyle = {{color: 'red'}} to="/filters">Filters</NavLink></div>
                         <div><NavLink activeStyle = {{color: 'red'}} to="/articles">Articles</NavLink></div>
+                        <div><NavLink activeStyle = {{color: 'red'}} to="/comments">Comments</NavLink></div>
                     </div>
                     <UserForm value = {this.state.username} onChange = {this.handleUserChange} />
                     <Switch>
                         <Route path = "/counter" component = {Counter} />
+                        <Route path = "/comments" render = {() => <h1>Component like Articles</h1>} />
                         <Route path = "/filters" component = {Filters} />
                         <Route path = "/articles/new" component = {NewArticle} />
                         <Route path = "/articles" component = {Articles} />
