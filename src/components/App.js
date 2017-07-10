@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Articles from './routes/Articles'
 import NewArticle from './routes/NewArticle'
 import NotFound from './routes/NotFound'
+import CommentsPage from './routes/CommentsPage'
 import UserForm from './UserForm'
 import Filters from './Filters'
 import Counter from './Counter'
@@ -30,6 +31,7 @@ class App extends Component {
                         <Route path = "/filters" component = {Filters} />
                         <Route path = "/articles/new" component = {NewArticle} />
                         <Route path = "/articles" component = {Articles} />
+                        <Route path = '/comments/:page' component = {CommentsPage} />
                         <Route path = "*" component = {NotFound}/>
                     </Switch>
                 </div>
