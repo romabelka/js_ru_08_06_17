@@ -33,6 +33,7 @@
     "webpack-dev-server": "^2.0.0"
   },
   "dependencies": {
+    "history": "^4.6.3",
     "immutable": "^3.8.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.0",
@@ -40,6 +41,7 @@
     "react-dom": "^15.5.0",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
+    "react-router-redux": "^5.0.0-alpha.6",
     "react-select": "^1.0.0-rc.5",
     "react-transition-group": "^1.2.0",
     "redux": "^3.7.0",
