@@ -70,7 +70,7 @@ export function loadArticle(id) {
                     type: LOAD_ARTICLE + FAIL,
                     payload: { id, error }
                 }))
-        }, 1000)
+        }, 500)
     }
 }
 
