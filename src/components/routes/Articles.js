@@ -10,6 +10,7 @@ class Articles extends Component {
     };
 
     render() {
+        console.log('---', 1)
         return (
             <div>
                 <ArticleList />
