@@ -26,20 +26,23 @@ class Article extends Component {
         areCommentsOpen: false
     }
 
+    componentWillReceiveProps() {
+        console.log(this.props)
+    }
+
     componentDidMount() {
         const {loadArticle, article, id} = this.props
         if (!article  || (!article.text && !article.loading)) loadArticle(id)
     }
 
-/*
-    shouldComponentUpdate(nextProps, nextState) {
-        return nextProps.isOpen !== this.props.isOpen
-    }
-*/
+
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     debugger
+    // }
+
 
     render() {
         const {article, isOpen, toggleOpen} = this.props
-        console.log('---', 2)
         if (!article) return null
         return (
             <div ref = {this.setContainerRef}>
@@ -70,13 +73,13 @@ class Article extends Component {
 
     setContainerRef = ref => {
         this.container = ref
-//        console.log('---', ref)
     }
 
     getBody() {
         const {article, isOpen} = this.props
+        
         if (!isOpen) return null
-        if (article.loading) return <Loader/>
+        if (article.get('loading')) return <Loader/>
         return (
             <section>
                {article.text}
@@ -93,9 +96,9 @@ class Article extends Component {
 }
 
 export default connect((state, ownProps) => {
-        console.log('---', 123)
+    const buffer = state.articles.entities.get(ownProps.id)
         return {
-            article: state.articles.entities.get(ownProps.id)
+            article: buffer
         }
     },
     { deleteArticle, loadArticle },

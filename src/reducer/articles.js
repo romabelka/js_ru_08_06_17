@@ -40,8 +40,15 @@ export default (articleState = defaultState, action) => {
             return articleState.set('loading', true)
 
         case LOAD_ALL_ARTICLES + SUCCESS:
+            const articles = arrToMap(response, ArticleRecord).map((article) => {
+                if (articleState.hasIn(['entities', article.id])){
+                    return articleState.getIn(['entities', article.id])
+                }
+                return article
+            })
+
             return articleState
-                .set('entities', arrToMap(response, ArticleRecord))
+                .set('entities', articles)
                 .set('loading', false)
                 .set('loaded', true)
 
