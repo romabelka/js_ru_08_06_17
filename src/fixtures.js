@@ -268,5 +268,79 @@ export const articles = [
         "title": "Lorem Ipsum dolor",
         "text": "Commodo laborum sit nostrud reprehenderit cupidatat officia laboris. Ipsum minim culpa in enim. Voluptate dolor ea irure nisi incididunt enim magna.\n\nCupidatat quis cillum velit culpa tempor esse irure nostrud ea consectetur officia fugiat irure qui. Enim quis officia do in. Velit veniam ipsum consequat aliqua duis voluptate. Minim nisi ex aute ad.\n\nNisi Lorem ex tempor adipisicing labore. Quis occaecat fugiat pariatur labore culpa cillum laboris. Labore occaecat ut laborum sit ex do sit. Deserunt consectetur elit aute laboris est deserunt officia ullamco sit laboris officia aliquip. Aliqua ut sunt nostrud voluptate excepteur quis incididunt Lorem ut."
     }
-
 ]
+
+export const dictionary = {
+    mainMenu: {
+        eng: 'Main menu',
+        rus: 'Главное меню'
+    },
+    counter: {
+        eng: 'Counter',
+        rus: 'Счётчик'
+    },
+    filters: {
+        eng: 'Filters',
+        rus: 'Фильтры'
+    },
+    articles: {
+        eng: 'Articles',
+        rus: 'Статьи'
+    },
+    comments: {
+        eng: 'Comments',
+        rus: 'Комментарии'
+    },
+    comment: {
+        eng: 'Comment',
+        rus: 'Комментарий'
+    },
+    name: {
+        eng: 'Name',
+        rus: 'Имя'
+    },
+    close: {
+        eng: 'Close',
+        rus: 'Закрыть'
+    },
+    open: {
+        eng: 'Open',
+        rus: 'Открыть'
+    },
+    delete: {
+        eng: 'Delete',
+        rus: 'Удалить'
+    },
+    update: {
+        eng: 'Update',
+        rus: 'Обновить'
+    },
+    user: {
+        eng: 'User',
+        rus: 'Пользователь'
+    },
+    showComments: {
+        eng: 'Show comments',
+        rus: 'Показать комментарии'
+    },
+    hideComments: {
+        eng: 'Hide comments',
+        rus: 'Скрыть комментарии'
+    },
+    eng: {
+        eng: 'Eng',
+        rus: 'Англ'
+    },
+    rus: {
+        eng: 'Rus',
+        rus: 'Рус'
+    },
+    increment: {
+        eng: 'Increment',
+        rus: 'Инкремент'
+    },
+    submit: {
+        eng: 'Submit',
+        rus: 'Отправить'
+    }
+}

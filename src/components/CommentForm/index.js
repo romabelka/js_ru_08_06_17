@@ -9,6 +9,11 @@ class CommentForm extends Component {
         articleId: PropTypes.string.isRequired,
         addComment: PropTypes.func.isRequired
     };
+    
+    static contextTypes = {
+        dictionary: PropTypes.object,
+        language: PropTypes.string
+    }
 
     state = {
         user: '',
@@ -18,13 +23,13 @@ class CommentForm extends Component {
     render() {
         return (
             <form onSubmit = {this.handleSubmit}>
-                user: <input value = {this.state.user}
+                {this.context.dictionary.user[this.context.language]}: <input value = {this.state.user}
                              onChange = {this.handleChange('user')}
                              className = {this.getClassName('user')} />
-                comment: <input value = {this.state.text}
+                {this.context.dictionary.comment[this.context.language]}: <input value = {this.state.text}
                                 onChange = {this.handleChange('text')}
                                 className = {this.getClassName('text')} />
-                <input type = "submit" value = "submit"/>
+                <input type = "submit" value = {this.context.dictionary.submit[this.context.language]}/>
             </form>
         )
     }
