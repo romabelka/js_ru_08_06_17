@@ -20,15 +20,21 @@ class Article extends Component {
             text: PropTypes.string
         })
     }
+    
+    static contextTypes = {
+        dictionary: PropTypes.object,
+        language: PropTypes.string
+    }
 
     state = {
         updateIndex: 0,
         areCommentsOpen: false
     }
 
-    componentWillReceiveProps() {
-        console.log(this.props)
-    }
+    // componentWillUpdate() {
+    //     console.log(this.props)
+    //     debugger
+    // }
 
     componentDidMount() {
         const {loadArticle, article, id} = this.props
@@ -48,9 +54,12 @@ class Article extends Component {
             <div ref = {this.setContainerRef}>
                 <h3>{article.title}</h3>
                 <button onClick = {toggleOpen}>
-                    {isOpen ? 'close' : 'open'}
+                    {isOpen ? 
+                    this.context.dictionary.close[this.context.language] 
+                    : 
+                    this.context.dictionary.open[this.context.language]}
                 </button>
-                <button onClick = {this.handleDelete}>delete me</button>
+                <button onClick = {this.handleDelete}>{this.context.dictionary.delete[this.context.language]}</button>
                 <CSSTransitionGroup
                     transitionName = 'article'
                     transitionAppear
@@ -83,7 +92,7 @@ class Article extends Component {
         return (
             <section>
                {article.text}
-                <button onClick = {() => this.setState({updateIndex: this.state.updateIndex + 1})}>update</button>
+                <button onClick = {() => this.setState({updateIndex: this.state.updateIndex + 1})}>{this.context.dictionary.update[this.context.language]}</button>
                <CommentList article = {article} ref = {this.setCommentsRef} key = {this.state.updateIndex}/>
             </section>
         )

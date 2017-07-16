@@ -9,11 +9,16 @@ class Counter extends Component {
         increment: PropTypes.func.isRequired
     };
 
+    static contextTypes = {
+        dictionary: PropTypes.object,
+        language: PropTypes.string
+    }
+
     render() {
         return (
             <div>
                 <h2>{this.props.counter}</h2>
-                <button onClick = {this.handleIncrement}>Increment me</button>
+                <button onClick = {this.handleIncrement}>{this.context.dictionary.increment[this.context.language]}</button>
             </div>
         )
     }
